@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Dear-Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Dear-Sans'), url('./fonts/Dear\ Sans.otf') format('opentype');
+}
