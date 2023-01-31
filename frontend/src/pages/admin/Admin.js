@@ -61,6 +61,7 @@ const Admin = () => {
     <Layout hasSider>
       <Sider
         theme='light'
+        trigger={null}
         // collapsed={collapsed}
         breakpoint="lg"
         onCollapse={(collapsed)=>setCollapsed(collapsed)}

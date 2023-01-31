@@ -1,13 +1,17 @@
-.ant-menu-item-selected {
-  background-color: white;
-  color: var(--theme-color) !important;
-}
 .ant-menu{
   background-color: var(--theme-color);
   color: white;
-}
-:where(.css-dev-only-do-not-override-1n7nwfa).ant-menu-light .ant-menu-item:hover:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected), :where(.css-dev-only-do-not-override-1n7nwfa).ant-menu-light .ant-menu-submenu-title:hover:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected){
-  color: white;
+  li:hover{
+    color: white !important;
+  }
+  .ant-menu-item-selected {
+    background-color: white;
+    color: var(--theme-color) !important;
+    &:hover {
+      background-color: white;
+      color: var(--theme-color) !important;
+    }
+  }
 }
 .ant-layout-sider{
   scrollbar-width: 5px;
