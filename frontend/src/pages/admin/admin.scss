@@ -1,7 +1,8 @@
-.ant-menu{
+.ant-menu {
   background-color: var(--theme-color);
   color: white;
-  li:hover{
+  padding-top: 30px;
+  li:hover {
     color: white !important;
   }
   .ant-menu-item-selected {
@@ -13,30 +14,33 @@
     }
   }
 }
-.ant-layout-sider{
+.ant-layout-sider {
   scrollbar-width: 5px;
 }
-.ant-layout-sider::-webkit-scrollbar{
+.ant-layout-sider::-webkit-scrollbar {
   width: 5px;
   border: none;
   background-color: white;
 }
-.ant-layout-sider::-webkit-scrollbar-track{
+.ant-layout-sider::-webkit-scrollbar-track {
   width: 5px;
   background-color: var(--theme-color-light);
 }
-.ant-layout-sider::-webkit-scrollbar-thumb{
+.ant-layout-sider::-webkit-scrollbar-thumb {
   width: 5px;
   background-color: var(--theme-color);
 }
 .side-bar-top {
-  padding: 10px 20px;
+  .side-bar-logo {
+    background-color: white;
+    padding: 10px;
+  }
   .side-bar-logo img {
     width: 100%;
   }
   .user-area {
+    padding: 10px 0px;
     width: 100%;
-    margin: 10px 0px;
     text-align: center;
     color: white;
     img {
@@ -48,6 +52,6 @@
   }
 }
 
-.site-layout{
+.site-layout {
   background-color: white !important;
 }

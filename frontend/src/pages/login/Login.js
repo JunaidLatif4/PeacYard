@@ -35,7 +35,7 @@ const Login = () => {
   return (
     <section id="login">
       <div className='login-content'>
-        <img src={SiteConstants.Logo} alt="logo" />
+        <img src={SiteConstants.LogoBlack} alt="logo" />
         <div className='login-container'>
           <p> Login </p>
           <form onSubmit={handleSubmit}>

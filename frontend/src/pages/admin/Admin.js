@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Dashboard from "./pages/dashboard/Dashboard";
-import { Layout, Menu } from 'antd';
-import { BsCalculator, BsCardImage, BsCart, BsFilePdf, BsHandThumbsUp, BsSpeedometer } from 'react-icons/bs';
+import { Avatar, Layout, Menu } from 'antd';
+import { BsCalculator, BsCardImage, BsCart, BsFilePdf, BsHandThumbsUp, BsPerson, BsSpeedometer } from 'react-icons/bs';
 import { BiMoney, BiSave } from 'react-icons/bi';
 import { AiOutlineMail, AiOutlineCluster, AiOutlineBars, AiOutlineApi } from 'react-icons/ai';
 import { FaLanguage, FaRegAddressCard, FaSteamSymbol, FaUsers } from 'react-icons/fa';
 // import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons"
 import "./admin.scss";
+import SiteConstants from '../../constants/SiteConstants';
 
 const { Content, Sider } = Layout;
 const Admin = () => {
@@ -19,7 +20,7 @@ const Admin = () => {
   //   setCollapsed(!collapsed);
   // };
 
-  function getItem(label, key, icon, children, type) {
+  function getItem(label, icon, children, type, key) {
     return {
       key: label,
       icon,
@@ -29,27 +30,27 @@ const Admin = () => {
     };
   }
   const items = [
-    getItem('Dashboard', '1', <BsSpeedometer size={25} />),
-    getItem('Reporting', '2', <BsCalculator size={25} />),
-    getItem('Designs', '3', <BiSave size={25} />),
-    getItem('Offers', '4', <BsHandThumbsUp size={25} />),
-    getItem('Orders', '5', <BsCart size={25} />),
-    getItem('Contacts', '6', <FaRegAddressCard size={25} />),
-    getItem('Messages', '7', <AiOutlineMail size={25} />),
-    getItem('Inovices', '8', <BiMoney size={25} />),
-    getItem('Products', '9', <FaSteamSymbol size={25} />),
-    getItem('Accounts', '10', <FaUsers size={25} />),
-    getItem('Sites', '11', <AiOutlineCluster size={25} />),
-    getItem('PDF Autofill', '12', <BsFilePdf size={25} />),
-    getItem('Media Library', '13', <BsCardImage size={25} />),
-    getItem('Languages', '14', <FaLanguage size={25} />),
-    getItem('API', '15', <AiOutlineApi size={25} />),
-    getItem('Logs', '16', <AiOutlineBars size={25} />),
+    getItem('Dashboard', <BsSpeedometer size={25} />),
+    getItem('Reporting', <BsCalculator size={25} />),
+    getItem('Designs', <BiSave size={25} />),
+    getItem('Offers', <BsHandThumbsUp size={25} />),
+    getItem('Orders', <BsCart size={25} />),
+    getItem('Contacts', <FaRegAddressCard size={25} />),
+    getItem('Messages', <AiOutlineMail size={25} />),
+    getItem('Inovices', <BiMoney size={25} />),
+    getItem('Products', <FaSteamSymbol size={25} />),
+    getItem('Accounts', <FaUsers size={25} />),
+    getItem('Sites', <AiOutlineCluster size={25} />),
+    getItem('PDF Autofill', <BsFilePdf size={25} />),
+    getItem('Media Library', <BsCardImage size={25} />),
+    getItem('Languages', <FaLanguage size={25} />),
+    getItem('API', <AiOutlineApi size={25} />),
+    getItem('Logs', <AiOutlineBars size={25} />),
   ];
 
-  const handleMenuClick = (menu)=>{
+  const handleMenuClick = (menu) => {
     let path = menu?.key?.toLowerCase()?.split(" ").join("-");
-    if(path === "dashboard"){
+    if (path === "dashboard") {
       navigate("/admin/");
       return;
     }
@@ -64,7 +65,7 @@ const Admin = () => {
         trigger={null}
         // collapsed={collapsed}
         breakpoint="lg"
-        onCollapse={(collapsed)=>setCollapsed(collapsed)}
+        onCollapse={(collapsed) => setCollapsed(collapsed)}
         style={{
           backgroundColor: "var(--theme-color)",
           overflow: 'auto',
@@ -86,24 +87,22 @@ const Admin = () => {
             {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
           </Button>
         </div> */}
-        <div className='side-bar-top'>
-          {
-            !collapsed &&
-            <>
-              <div className='side-bar-logo'>
-                <img src={require("../../assets/img/dashbaord-logo.png")} alt="" />
-              </div>
-              <div className='user-area'>
-                <img src={require("../../assets/img/user-img.png")} alt="" />
-                <p>Username Title</p>
-              </div>
-            </>
-          }
-        </div>
+        {
+          !collapsed &&
+          <div className='side-bar-top'>
+            <div className='side-bar-logo'>
+              <img src={SiteConstants.LogoBlack} alt="" />
+            </div>
+            <div className='user-area'>
+              <Avatar icon={<BsPerson />} size={92} />
+              <p>Username Title</p>
+            </div>
+          </div>
+        }
         <Menu
           onClick={handleMenuClick}
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={['Dashboard']}
           className="antd-menu"
           items={items}
         />
