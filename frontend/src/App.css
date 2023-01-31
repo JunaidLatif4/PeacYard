@@ -4,17 +4,34 @@
   box-sizing: border-box;
   font-family: Dear-Sans;
 }
-
-.simple-btn{
-  background-color: white;
-  border: none;
-  cursor: pointer;
+:root{
+  --theme-color: #ff6666;
+  --theme-color-light: #ff66662c;
 }
 
-.btn {
-  background-color: white;
-  border: 1px solid black;
-  padding: 15px;
-  border-radius: 15px;
+.theme-btn{
+  background-color: var(--theme-color);
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.theme-text{
+  color: var(--theme-color);
+}
+
+.theme-hover-solid:hover{
+  background-color: var(--theme-color);
+  color: white;
+}
+
+.theme-hover-transparet-bg:hover{
+  background-color: var(--theme-color-light);
+  color: var(--theme-color);
+}
+
+.btn{
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }

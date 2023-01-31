@@ -7,13 +7,13 @@ const Dashboard = () => {
   return (
     <div id="dashboard">
       <div className='dashbaord-header'>
-        <h1> Dashboard </h1>
-        <button className='simple-btn'>
+        <h1 className='theme-text'> Dashboard </h1>
+        <button className='btn theme-text'>
           <BsBell size={25} />
         </button>
       </div>
       <div className='dashboard-content'>
-        <button className='simple-btn'>
+        <button className='theme-btn'>
           <BsPlus size={25} />
         </button>
         <div className='card-container'>

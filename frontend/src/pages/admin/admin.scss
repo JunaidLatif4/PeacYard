@@ -1,43 +1,49 @@
-#admin {
-  display: flex;
-  position: relative;
-  @media screen and (max-width: 700px) {
-    flex-direction: column;
-  }
-  .admin-side-bar {
-    background-color: rgb(173, 173, 173);
-    width: 250px;
-    @media screen and (max-width: 700px) {
-      display: none;
-    }
-  }
-  .side-bar-toggler{
-    display: none;
-    padding: 0px 10px;
-    cursor: pointer;
-    @media screen and (max-width: 700px) {
-      display: block;
-    }
-  }
-  .admin-mobile-side-bar{
-    display: none;
+.ant-menu-item-selected {
+  background-color: white;
+  color: var(--theme-color) !important;
+}
+.ant-menu{
+  background-color: var(--theme-color);
+  color: white;
+}
+:where(.css-dev-only-do-not-override-1n7nwfa).ant-menu-light .ant-menu-item:hover:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected), :where(.css-dev-only-do-not-override-1n7nwfa).ant-menu-light .ant-menu-submenu-title:hover:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected){
+  color: white;
+}
+.ant-layout-sider{
+  scrollbar-width: 5px;
+}
+.ant-layout-sider::-webkit-scrollbar{
+  width: 5px;
+  border: none;
+  background-color: white;
+}
+.ant-layout-sider::-webkit-scrollbar-track{
+  width: 5px;
+  background-color: var(--theme-color-light);
+}
+.ant-layout-sider::-webkit-scrollbar-thumb{
+  width: 5px;
+  background-color: var(--theme-color);
+}
+.side-bar-top {
+  padding: 10px 20px;
+  .side-bar-logo img {
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    height: 100vh;
-    overflow-y: auto;
-    transition: all 0.3s linear;
-    @media screen and (max-width: 700px) {
-      display: block;
+  }
+  .user-area {
+    width: 100%;
+    margin: 10px 0px;
+    text-align: center;
+    color: white;
+    img {
+      height: 80px;
+      width: 90px;
+      object-fit: contain;
+      object-position: top;
     }
   }
-  .admin-content {
-    flex-grow: 1;
-    padding: 30px;
-    @media screen and (max-width: 700px) {
-      padding: 10px;
-    }
-  }
+}
+
+.site-layout{
+  background-color: white !important;
 }

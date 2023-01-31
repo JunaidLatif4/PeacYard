@@ -77,7 +77,7 @@ const Login = () => {
               </div>
               </div>
             }
-            <button type='submit' className='login-btn'> Login </button>
+            <button type='submit' className='login-btn theme-btn'> Login </button>
             {
               recoverPasswordPopup &&
               <div className='recover-password-popup'>

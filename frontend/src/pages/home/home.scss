@@ -9,14 +9,20 @@
         align-items: center;
         .home-tagline{
             text-align: center;
+            color: var(--theme-color);
         }
         .home-sub-text{
+            color: grey;
             text-align: center;
             font-size: 13px;
         }
-        .btn, .home-para{
+        .theme-btn, .home-para{
             text-align: center;
             margin-top: 30px;
+        }
+        .theme-btn{
+            padding: 20px 20px;
+            border-radius: 8px;
         }
     }
 }

@@ -8,7 +8,7 @@ const Footer = () => {
             <footer>
                 <p className='copyright-text'> Copyright &#169; {SiteConstants.SiteName} 2022 </p>
             </footer>
-            <button className='chat-btn btn'>
+            <button className='chat-btn theme-btn'>
                 Chat
             </button>
         </section>

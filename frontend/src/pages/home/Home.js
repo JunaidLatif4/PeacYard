@@ -14,7 +14,7 @@ const Home = () => {
             <p className='home-para'>
               
             </p>
-            <button className='btn' onClick={()=>navigate("/login")}> Contact Us </button>
+            <button className='theme-btn' onClick={()=>navigate("/login")}> Contact Us </button>
         </div>
     </section>
   )

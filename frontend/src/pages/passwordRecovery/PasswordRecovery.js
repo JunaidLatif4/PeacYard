@@ -27,7 +27,7 @@ const PasswordRecovery = () => {
                 <input type="text" name="username" />
               </div>
             </div>
-            <button type='button' onClick={handleSubmit} className='recover-btn'> Recover my password </button>
+            <button type='button' onClick={handleSubmit} className='recover-btn theme-btn'> Recover my password </button>
           </>
         }
         {
@@ -49,7 +49,7 @@ const PasswordRecovery = () => {
                 <input type="password" name="confirmPassword" />
               </div>
             </div>
-            <button type='button' className='recover-btn'> Update Password </button>
+            <button type='button' className='recover-btn theme-btn'> Update Password </button>
           </>
         }
       </div>
