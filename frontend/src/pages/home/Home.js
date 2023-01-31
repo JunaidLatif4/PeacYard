@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <section id="home">
         <div className='home-content'>
-            <img src={SiteConstants.Logo} alt="logo" />
+            <img src={SiteConstants.LogoBlack} alt="logo" />
             <h1 className='home-tagline'> Memorial Designer & Configurator </h1>
             <p className='home-sub-text'> Client Application & Sales Application </p>
             <p className='home-para'>
