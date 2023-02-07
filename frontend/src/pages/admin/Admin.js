@@ -132,12 +132,7 @@ const Admin = () => {
           marginLeft: collapsed ? 80 : 200,
         }}
       >
-        <Content
-          style={{
-            margin: '24px 16px 0',
-            overflow: 'initial',
-          }}
-        >
+        <Content>
           <div className='admin-content'>
             <div className='admin-header'>
               <h1 className='theme-text route-name'> {currentRoute} </h1>

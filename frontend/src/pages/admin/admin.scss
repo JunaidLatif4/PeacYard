@@ -76,12 +76,13 @@
 .site-layout {
   background-color: white !important;
   .admin-content {
+    padding-left: 16px;
     height: calc(100vh - 30px);
     overflow: hidden;
     .admin-header {
-      width: 100%;
       display: flex;
       justify-content: space-between;
+      padding-right: 20px;
       h1 {
         font-size: 35px;
       }
@@ -95,6 +96,7 @@
       margin-top: 80px;
       padding-top: 50px;
       padding-right: 20px;
+      padding-bottom: 50px;
       &::-webkit-scrollbar {
         width: 5px;
         height: 8px;
