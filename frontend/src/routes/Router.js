@@ -7,7 +7,6 @@ const Router = () => {
         <Routes>
             <Route index element={<Pages.Home />} />
             <Route path='/login' element={<Pages.Login />} />
-            <Route path='/app/design' element={<Pages.Design />} />
             <Route path='/admin/*' element={<Pages.Admin />} />
         </Routes> 
     </>

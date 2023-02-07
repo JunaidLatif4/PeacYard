@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
-import { Routes, Route, useNavigate } from "react-router-dom";
-import Dashboard from "./pages/dashboard/Dashboard";
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { Avatar, Layout, Menu } from 'antd';
-import { BsCalculator, BsCardImage, BsCart, BsFilePdf, BsHandThumbsUp, BsPerson, BsSpeedometer } from 'react-icons/bs';
-import { BiMoney, BiSave } from 'react-icons/bi';
-import { AiOutlineMail, AiOutlineCluster, AiOutlineBars, AiOutlineApi } from 'react-icons/ai';
+import { BsBell, BsBoxArrowLeft, BsCalculator, BsCardImage, BsCart, BsFilePdf, BsHandThumbsUp, BsInfoCircleFill, BsPerson, BsSpeedometer } from 'react-icons/bs';
+import { BiHelpCircle, BiMoney, BiSave } from 'react-icons/bi';
+import { AiOutlineMail, AiOutlineCluster, AiOutlineBars, AiOutlineApi, AiFillSetting } from 'react-icons/ai';
 import { FaLanguage, FaRegAddressCard, FaSteamSymbol, FaUsers } from 'react-icons/fa';
-// import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons"
-import "./admin.scss";
+import { HiOutlineChevronDoubleLeft, HiOutlineChevronDoubleRight } from 'react-icons/hi';
+import { RiRecycleFill } from 'react-icons/ri';
 import SiteConstants from '../../constants/SiteConstants';
+import Dashboard from "./pages/dashboard/Dashboard";
+import Design from './pages/design/Design';
+import "./admin.scss";
 
 const { Content, Sider } = Layout;
 const Admin = () => {
 
-  const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
+  const [collapsed, setCollapsed] = useState(false);
+  const [currentRoute, setCurrentRoute] = useState();
 
-  // const toggleCollapsed = () => {
-  //   setCollapsed(!collapsed);
-  // };
+  useEffect(()=>{
+    let path = location.pathname?.replace("/admin/","")?.replace("-", " ");
+    setCurrentRoute(path || "dashbaord");
+  }, [location.pathname]);
+
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
 
   function getItem(label, icon, children, type, key) {
     return {
@@ -63,7 +72,7 @@ const Admin = () => {
       <Sider
         theme='light'
         trigger={null}
-        // collapsed={collapsed}
+        collapsed={collapsed}
         breakpoint="lg"
         onCollapse={(collapsed) => setCollapsed(collapsed)}
         style={{
@@ -74,19 +83,9 @@ const Admin = () => {
           left: 0,
           top: 0,
           bottom: 0,
+          zIndex: 100,
         }}
       >
-        {/* <div style={{ textAlign: collapsed ? "center" : "right", paddingTop: "10px" }}>
-          <Button
-            type="primary"
-            onClick={toggleCollapsed}
-            style={{
-              marginBottom: 16,
-            }}
-          >
-            {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-          </Button>
-        </div> */}
         {
           !collapsed &&
           <div className='side-bar-top'>
@@ -106,7 +105,26 @@ const Admin = () => {
           className="antd-menu"
           items={items}
         />
-        <div style={{ height: "30px" }} />
+        <div style={{ height: "50px" }} />
+        <div className='side-footer'>
+          <div className='side-footer-content'>
+            <div className='text-center'>
+              {
+                collapsed ?
+                  <HiOutlineChevronDoubleRight onClick={toggleCollapsed} size={25} /> :
+                  <HiOutlineChevronDoubleLeft onClick={toggleCollapsed} size={25} />
+              }
+            </div>
+            <br />
+            <div className='footer-actions' {...(collapsed ? {style: {flexDirection: "column"}}: {})}>
+              <BsBoxArrowLeft size={25} />
+              <BiHelpCircle size={25} />
+              <AiFillSetting size={25} />
+              <BsInfoCircleFill size={25} />
+              <RiRecycleFill size={25} />
+            </div>
+          </div>
+        </div>
       </Sider>
       <Layout
         className="site-layout"
@@ -120,9 +138,20 @@ const Admin = () => {
             overflow: 'initial',
           }}
         >
-          <Routes>
-            <Route index path='/' element={<Dashboard />} />
-          </Routes>
+          <div className='admin-content'>
+            <div className='admin-header'>
+              <h1 className='theme-text route-name'> {currentRoute} </h1>
+              <button className='btn theme-text'>
+                <BsBell size={25} />
+              </button>
+            </div>
+            <div className='admin-routes'>
+              <Routes>
+                <Route index path='/' element={<Dashboard />} />
+                <Route index path='/designs' element={<Design />} />
+              </Routes>
+            </div>
+          </div>
         </Content>
       </Layout>
     </Layout>

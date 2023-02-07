@@ -1,17 +1,11 @@
 import React from 'react'
-import { BsBell, BsPlus } from 'react-icons/bs'
+import { BsPlus } from 'react-icons/bs'
 import LineGraph from '../../components/graph/LineGraph'
 import "./dashboard.scss"
 const Dashboard = () => {
 
   return (
     <div id="dashboard">
-      <div className='dashbaord-header'>
-        <h1 className='theme-text'> Dashboard </h1>
-        <button className='btn theme-text'>
-          <BsBell size={25} />
-        </button>
-      </div>
       <div className='dashboard-content'>
         <button className='theme-btn'>
           <BsPlus size={25} />

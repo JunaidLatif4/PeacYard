@@ -1,15 +1,6 @@
 #dashboard {
   width: 100%;
-  .dashbaord-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    h1{
-      font-size: 35px;
-    }
-  }
   .dashboard-content {
-    margin-top: 140px;
     position: relative;
     .theme-btn {
       border-radius: 50%;

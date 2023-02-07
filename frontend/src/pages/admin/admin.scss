@@ -52,6 +52,58 @@
   }
 }
 
+.side-footer {
+  padding: 0px 5px;
+  padding-bottom: 20px;
+  .side-footer-content {
+    svg{
+      cursor: pointer;
+      color: white;
+    }
+    .footer-actions{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+      gap: 10px;
+      svg{
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
 .site-layout {
   background-color: white !important;
+  .admin-content {
+    height: calc(100vh - 30px);
+    overflow: hidden;
+    .admin-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      h1 {
+        font-size: 35px;
+      }
+      .route-name{
+        text-transform: capitalize;
+      }
+    }
+    .admin-routes {
+      height: calc(100vh - 100px);
+      overflow-y: auto;
+      margin-top: 80px;
+      padding-top: 50px;
+      padding-right: 20px;
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 8px;
+        background-color: var(--theme-color-light);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--theme-color);
+      }
+    }
+  }
 }
