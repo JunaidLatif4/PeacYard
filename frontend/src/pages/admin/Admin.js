@@ -11,6 +11,7 @@ import SiteConstants from '../../constants/SiteConstants';
 import Dashboard from "./pages/dashboard/Dashboard";
 import Design from './pages/design/Design';
 import "./admin.scss";
+import Reports from './pages/reports/Reports';
 
 const { Content, Sider } = Layout;
 const Admin = () => {
@@ -143,6 +144,7 @@ const Admin = () => {
             <div className='admin-routes'>
               <Routes>
                 <Route index path='/' element={<Dashboard />} />
+                <Route index path='/reporting' element={<Reports />} />
                 <Route index path='/designs' element={<Design />} />
               </Routes>
             </div>
