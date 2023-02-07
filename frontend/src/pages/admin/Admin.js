@@ -21,7 +21,7 @@ const Admin = () => {
   const [currentRoute, setCurrentRoute] = useState();
 
   useEffect(()=>{
-    let path = location.pathname?.replace(/(\/)/g, "")?.replace("admin", "")?.replace("-", "");
+    let path = location.pathname?.replace(/(\/)/g, "")?.replace("admin", "")?.replace("-", " ");
     setCurrentRoute(path || "dashbaord");
   }, [location.pathname,]);
 
