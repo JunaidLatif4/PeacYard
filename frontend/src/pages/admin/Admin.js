@@ -20,6 +20,7 @@ import HelpMenuModal from '../../components/HelpMenuModal/HelpMenuModal';
 import InformationModal from '../../components/InformationModal/InformationModal';
 import ProfileModal from '../../components/ProfileModal/ProfileModal';
 import LogOutModal from '../../components/LogOutModal/LogOutModal';
+import Trash from './pages/Trash/Trash';
 
 // Helpers :
 import SiteConstants from '../../constants/SiteConstants';
@@ -100,7 +101,7 @@ const Admin = () => {
     setOpenProfileModal(true)
   }
   const handleLogoutModal = () => {
-    setOpenProfileModal(true)
+    setOpenLogoutModal(true)
   }
 
 
@@ -159,7 +160,7 @@ const Admin = () => {
                 <BiHelpCircle size={25} onClick={handleHelpModal} />
                 <AiFillSetting size={25} onClick={handleProfileModal} />
                 <BsInfoCircleFill size={25} onClick={handleInformationModal} />
-                <RiRecycleFill size={25} />
+                <RiRecycleFill size={25} onClick={() => navigate("/admin/trash")} />
               </div>
             </div>
           </div>
@@ -183,6 +184,7 @@ const Admin = () => {
                   <Route index path='/' element={<Dashboard />} />
                   <Route index path='/reporting' element={<Reports />} />
                   <Route index path='/designs' element={<Design />} />
+                  <Route index path='/trash' element={<Trash />} />
                 </Routes>
               </div>
             </div>

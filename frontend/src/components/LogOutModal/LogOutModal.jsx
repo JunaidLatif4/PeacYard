@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // MUI | ANT-D :
 import { Modal, Box } from "@mui/material"
@@ -6,7 +6,6 @@ import { Button } from "antd"
 
 // Assets | Ant-D :
 import { AiFillCloseCircle } from "react-icons/ai"
-import ProfileIMG from "../../assets/img/profile.png"
 
 // CSS :
 import "./LogOutModal.scss"

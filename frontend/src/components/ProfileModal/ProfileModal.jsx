@@ -60,8 +60,8 @@ const HelpMenuModal = ({ openModal, setOpenModal }) => {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure distinctio in saepe nostrum vitae laudantium! Possimus aliquid illo, consectetur voluptatum nihil fugiat magni nulla nemo exercitationem voluptates ipsum, incidunt cupiditate.
                             </div>
                             <div className="links">
-                                <div className={selecteStep == "profile" ? "selectedBtn" : "btn"} onClick={() => changeStep("profile")}>Profile</div>
-                                <div className={selecteStep != "profile" ? "selectedBtn" : "btn"} onClick={() => changeStep("inter")}>Interface</div>
+                                <div className={selecteStep === "profile" ? "selectedBtn" : "btn"} onClick={() => changeStep("profile")}>Profile</div>
+                                <div className={selecteStep !== "profile" ? "selectedBtn" : "btn"} onClick={() => changeStep("inter")}>Interface</div>
                             </div>
                             <div className="settingBox">
                                 <div className="avaterBox">
