@@ -1,17 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+
+// MUI | ANT-D :
 import { Avatar, Layout, Menu } from 'antd';
+
+// Assets | ICONS :
 import { BsBell, BsBoxArrowLeft, BsCalculator, BsCardImage, BsCart, BsFilePdf, BsHandThumbsUp, BsInfoCircleFill, BsPerson, BsSpeedometer } from 'react-icons/bs';
 import { BiHelpCircle, BiMoney, BiSave } from 'react-icons/bi';
 import { AiOutlineMail, AiOutlineCluster, AiOutlineBars, AiOutlineApi, AiFillSetting } from 'react-icons/ai';
 import { FaLanguage, FaRegAddressCard, FaSteamSymbol, FaUsers } from 'react-icons/fa';
 import { HiOutlineChevronDoubleLeft, HiOutlineChevronDoubleRight } from 'react-icons/hi';
 import { RiRecycleFill } from 'react-icons/ri';
-import SiteConstants from '../../constants/SiteConstants';
+
+// Components :
 import Dashboard from "./pages/dashboard/Dashboard";
 import Design from './pages/design/Design';
-import "./admin.scss";
 import Reports from './pages/reports/Reports';
+import HelpMenuModal from '../../components/HelpMenuModal/HelpMenuModal';
+import InformationModal from '../../components/InformationModal/InformationModal';
+import ProfileModal from '../../components/ProfileModal/ProfileModal';
+import LogOutModal from '../../components/LogOutModal/LogOutModal';
+
+// Helpers :
+import SiteConstants from '../../constants/SiteConstants';
+
+// CSS :
+import "./admin.scss";
+
+
+
+
+
 
 const { Content, Sider } = Layout;
 const Admin = () => {
@@ -21,7 +40,12 @@ const Admin = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [currentRoute, setCurrentRoute] = useState();
 
-  useEffect(()=>{
+  const [openHelpModal, setOpenHelpModal] = useState(false)
+  const [openInformationModal, setOpenInformationModal] = useState(false)
+  const [openProfileModal, setOpenProfileModal] = useState(false)
+  const [openLogoutModal, setOpenLogoutModal] = useState(false)
+
+  useEffect(() => {
     let path = location.pathname?.replace(/(\/)/g, "")?.replace("admin", "")?.replace("-", " ");
     setCurrentRoute(path || "dashbaord");
   }, [location.pathname,]);
@@ -66,92 +90,110 @@ const Admin = () => {
     }
     navigate("/admin/" + path)
   }
+  const handleHelpModal = () => {
+    setOpenHelpModal(true)
+  }
+  const handleInformationModal = () => {
+    setOpenInformationModal(true)
+  }
+  const handleProfileModal = () => {
+    setOpenProfileModal(true)
+  }
+  const handleLogoutModal = () => {
+    setOpenProfileModal(true)
+  }
 
 
   return (
-    <Layout hasSider>
-      <Sider
-        theme='light'
-        trigger={null}
-        collapsed={collapsed}
-        breakpoint="lg"
-        onCollapse={(collapsed) => setCollapsed(collapsed)}
-        style={{
-          backgroundColor: "var(--theme-color)",
-          overflow: 'auto',
-          height: '100vh',
-          position: 'fixed',
-          left: 0,
-          top: 0,
-          bottom: 0,
-          zIndex: 100,
-        }}
-      >
-        {
-          !collapsed &&
-          <div className='side-bar-top'>
-            <div className='side-bar-logo'>
-              <img src={SiteConstants.LogoBlack} alt="" />
+    <>
+      <Layout hasSider>
+        <Sider
+          theme='light'
+          trigger={null}
+          collapsed={collapsed}
+          breakpoint="lg"
+          onCollapse={(collapsed) => setCollapsed(collapsed)}
+          style={{
+            backgroundColor: "var(--theme-color)",
+            overflow: 'auto',
+            height: '100vh',
+            position: 'fixed',
+            left: 0,
+            top: 0,
+            bottom: 0,
+            zIndex: 100,
+          }}
+        >
+          {
+            !collapsed &&
+            <div className='side-bar-top'>
+              <div className='side-bar-logo'>
+                <img src={SiteConstants.LogoBlack} alt="" />
+              </div>
+              <div className='user-area'>
+                <Avatar icon={<BsPerson />} size={92} />
+                <p>Username Title</p>
+              </div>
             </div>
-            <div className='user-area'>
-              <Avatar icon={<BsPerson />} size={92} />
-              <p>Username Title</p>
-            </div>
-          </div>
-        }
-        <Menu
-          onClick={handleMenuClick}
-          mode="inline"
-          defaultSelectedKeys={['Dashboard']}
-          className="antd-menu"
-          items={items}
-        />
-        <div style={{ height: "50px" }} />
-        <div className='side-footer'>
-          <div className='side-footer-content'>
-            <div className='text-center'>
-              {
-                collapsed ?
-                  <HiOutlineChevronDoubleRight onClick={toggleCollapsed} size={25} /> :
-                  <HiOutlineChevronDoubleLeft onClick={toggleCollapsed} size={25} />
-              }
-            </div>
-            <br />
-            <div className='footer-actions' {...(collapsed ? {style: {flexDirection: "column"}}: {})}>
-              <BsBoxArrowLeft size={25} />
-              <BiHelpCircle size={25} />
-              <AiFillSetting size={25} />
-              <BsInfoCircleFill size={25} />
-              <RiRecycleFill size={25} />
-            </div>
-          </div>
-        </div>
-      </Sider>
-      <Layout
-        className="site-layout"
-        style={{
-          marginLeft: collapsed ? 80 : 200,
-        }}
-      >
-        <Content>
-          <div className='admin-content'>
-            <div className='admin-header'>
-              <h1 className='theme-text route-name'> {currentRoute} </h1>
-              <button className='btn theme-text'>
-                <BsBell size={25} />
-              </button>
-            </div>
-            <div className='admin-routes'>
-              <Routes>
-                <Route index path='/' element={<Dashboard />} />
-                <Route index path='/reporting' element={<Reports />} />
-                <Route index path='/designs' element={<Design />} />
-              </Routes>
+          }
+          <Menu
+            onClick={handleMenuClick}
+            mode="inline"
+            defaultSelectedKeys={['Dashboard']}
+            className="antd-menu"
+            items={items}
+          />
+          <div style={{ height: "50px" }} />
+          <div className='side-footer'>
+            <div className='side-footer-content'>
+              <div className='text-center'>
+                {
+                  collapsed ?
+                    <HiOutlineChevronDoubleRight onClick={toggleCollapsed} size={25} /> :
+                    <HiOutlineChevronDoubleLeft onClick={toggleCollapsed} size={25} />
+                }
+              </div>
+              <br />
+              <div className='footer-actions' {...(collapsed ? { style: { flexDirection: "column" } } : {})}>
+                <BsBoxArrowLeft size={25} onClick={handleLogoutModal} />
+                <BiHelpCircle size={25} onClick={handleHelpModal} />
+                <AiFillSetting size={25} onClick={handleProfileModal} />
+                <BsInfoCircleFill size={25} onClick={handleInformationModal} />
+                <RiRecycleFill size={25} />
+              </div>
             </div>
           </div>
-        </Content>
+        </Sider>
+        <Layout
+          className="site-layout"
+          style={{
+            marginLeft: collapsed ? 80 : 200,
+          }}
+        >
+          <Content>
+            <div className='admin-content'>
+              <div className='admin-header'>
+                <h1 className='theme-text route-name'> {currentRoute} </h1>
+                <button className='btn theme-text'>
+                  <BsBell size={25} />
+                </button>
+              </div>
+              <div className='admin-routes'>
+                <Routes>
+                  <Route index path='/' element={<Dashboard />} />
+                  <Route index path='/reporting' element={<Reports />} />
+                  <Route index path='/designs' element={<Design />} />
+                </Routes>
+              </div>
+            </div>
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
+      <HelpMenuModal openModal={openHelpModal} setOpenModal={setOpenHelpModal} />
+      <InformationModal openModal={openInformationModal} setOpenModal={setOpenInformationModal} />
+      <ProfileModal openModal={openProfileModal} setOpenModal={setOpenProfileModal} />
+      <LogOutModal openModal={openLogoutModal} setOpenModal={setOpenLogoutModal} />
+    </>
   );
 };
 export default Admin;

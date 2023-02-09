@@ -1,0 +1,40 @@
+.logoutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .close {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+
+    .box {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+      .btnBox{
+        display: flex;
+        justify-content: center;
+
+        .btn{
+            width: 100px;
+            height: 40px;
+            background-color: red;
+            color: white;
+        }
+      }
+
+    }
+}
