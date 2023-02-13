@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from "react-router"
 
 // MUI | ANT-D :
 import { Modal, Box } from "@mui/material"
@@ -29,7 +30,7 @@ const defaultStyle = {
     px: 2,
 }
 const LogOutModel = ({ openModal, setOpenModal }) => {
-
+    const Navigate = useNavigate()
 
     const handleClose = () => {
         setOpenModal(false)
@@ -55,7 +56,7 @@ const LogOutModel = ({ openModal, setOpenModal }) => {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure distinctio in saepe nostrum vitae laudantium! Possimus aliquid illo, consectetur voluptatum nihil fugiat magni nulla nemo exercitationem voluptates ipsum, incidunt cupiditate.
                             </div>
                             <div className="btnBox">
-                                <Button className='btn' > Logout </Button>
+                                <Button className='btn' onClick={() => Navigate("/")} > Logout </Button>
                             </div>
                         </div>
                     </div>

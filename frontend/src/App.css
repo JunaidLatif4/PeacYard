@@ -41,3 +41,13 @@
 .text-center{
   text-align: center;
 }
+
+.flexEnd{
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: end;
+}
+
+.ant-select-dropdown{
+  z-index: 999999;
+}

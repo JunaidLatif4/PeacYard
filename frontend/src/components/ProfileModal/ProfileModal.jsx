@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 // MUI | ANT-D :
 import { Modal, Box } from "@mui/material"
-import { Button } from "antd"
+import { Button, Select } from "antd"
 
 // Assets | Ant-D :
 import { AiFillCloseCircle } from "react-icons/ai"
@@ -63,20 +63,106 @@ const HelpMenuModal = ({ openModal, setOpenModal }) => {
                                 <div className={selecteStep === "profile" ? "selectedBtn" : "btn"} onClick={() => changeStep("profile")}>Profile</div>
                                 <div className={selecteStep !== "profile" ? "selectedBtn" : "btn"} onClick={() => changeStep("inter")}>Interface</div>
                             </div>
-                            <div className="settingBox">
-                                <div className="avaterBox">
-                                    <div className="imgBox">
-                                        <img src={ProfileIMG} alt="ERROR" />
-                                    </div>
-                                    <div className="btn">
-                                        <Button> Upload New Profile Picture </Button>
-                                    </div>
-                                </div>
-                                <div className="authBox">
-                                    <div className="btn"><Button> Setup 2FA </Button></div>
-                                    <div className="btn"><Button> Change Password </Button></div>
-                                </div>
-                            </div>
+                            {
+                                selecteStep == "profile" ?
+                                    <>
+                                        <div className="settingBox">
+                                            <div className="avaterBox">
+                                                <div className="imgBox">
+                                                    <img src={ProfileIMG} alt="ERROR" />
+                                                </div>
+                                                <div className="btn">
+                                                    <Button> Upload New Profile Picture </Button>
+                                                </div>
+                                            </div>
+                                            <div className="authBox">
+                                                <div className="btn"><Button> Setup 2FA </Button></div>
+                                                <div className="btn"><Button> Change Password </Button></div>
+                                            </div>
+                                        </div>
+                                    </>
+                                    :
+                                    <>
+                                        <div className="settingInterBox">
+                                            <div className="selecterBox">
+                                                <div className="title">Backend-App Language</div>
+                                                <Select
+                                                    defaultValue="en"
+                                                    options={[
+                                                        {
+                                                            value: 'en',
+                                                            label: 'English (en)',
+                                                        },
+                                                        {
+                                                            value: 'sv',
+                                                            label: 'Svenska (sv)',
+                                                        },
+                                                        {
+                                                            value: 'no',
+                                                            label: 'Norsk (no)',
+                                                        },
+                                                        {
+                                                            value: 'dk',
+                                                            label: 'Dansk (dk)',
+                                                        },
+                                                    ]}
+                                                />
+                                            </div>
+                                            <div className="selecterBox">
+                                                <div className="title">Backend-App Color Theme</div>
+                                                <Select
+                                                    defaultValue="default"
+                                                    options={[
+                                                        {
+                                                            value: 'default',
+                                                            label: 'Default',
+                                                        },
+                                                        {
+                                                            value: 'orange',
+                                                            label: 'Orange',
+                                                        },
+                                                        {
+                                                            value: 'blue',
+                                                            label: 'Blue',
+                                                        },
+                                                        {
+                                                            value: 'green',
+                                                            label: 'Green',
+                                                        },
+                                                    ]}
+                                                />
+                                            </div>
+                                            <div className="selecterBox">
+                                                <div className="title">Display rows per page</div>
+                                                <Select
+                                                    defaultValue="small"
+                                                    options={[
+                                                        {
+                                                            value: 'small',
+                                                            label: 'Small (25)',
+                                                        },
+                                                        {
+                                                            value: 'medium',
+                                                            label: 'Medium (50)',
+                                                        },
+                                                        {
+                                                            value: 'large',
+                                                            label: 'Large (100)',
+                                                        },
+                                                        {
+                                                            value: 'extra',
+                                                            label: 'Extra Large (200)',
+                                                        },
+                                                    ]}
+                                                />
+                                            </div>
+                                        </div>
+                                    </>
+                            }
+
+                        </div>
+                        <div className="flexEnd">
+                            <Button className='btn'> Save </Button>
                         </div>
                     </div>
                 </Box>
