@@ -1,0 +1,160 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  // firefox scrollbar
+  scrollbar-width: 5px;
+  scrollbar-color: var(--theme-color);
+
+  // v8 engine scrollbar
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: var(--theme-color-light);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--theme-color);
+  }
+}
+
+:root {
+  --theme-color: #ff6666;
+  --theme-color-light: #ff66662c;
+  --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.theme-btn {
+  background-color: var(--theme-color);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.theme-text {
+  color: var(--theme-color);
+}
+
+.theme-hover-solid:hover {
+  background-color: var(--theme-color);
+  color: white;
+}
+
+.theme-hover-transparet-bg:hover {
+  background-color: var(--theme-color-light);
+  color: var(--theme-color);
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-pad {
+  padding: 10px 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.form-group {
+  margin: 10px 0px;
+
+  label,
+  .label {
+    font-size: 13px;
+    color: var(--theme-color);
+  }
+
+  input,
+  textarea,
+  select {
+    border: 1px solid var(--theme-color);
+    border-radius: 5px;
+    height: 40px;
+    padding: 0px 5px;
+    width: 100%;
+    color: grey;
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  textarea {
+    height: 120px;
+    padding: 5px;
+  }
+
+  .checkbox {
+    height: 20px;
+    width: 20px;
+  }
+
+  .checkBoxLabel {
+    font-size: .7rem;
+  }
+
+}
+
+.inputField {
+  width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.important {
+  color: red;
+  font-weight: bold;
+}
+
+.customized-scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: var(--theme-color-light);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--theme-color);
+  }
+}
+
+.close-icon {
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  font-weight: bolder;
+}
+
+.justify-content-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flexEnd {
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: end;
+}
+
+.flexLine {
+  width: -webkit-fill-available;
+  display: flex;
+  gap: .5rem;
+}
+
+.flexCenter {
+  width: -webkit-fill-available;
+  display: flex;
+  justify-content: center;
+}
+
+.ant-select-dropdown {
+  z-index: 999999;
+}

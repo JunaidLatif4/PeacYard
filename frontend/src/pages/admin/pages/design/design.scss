@@ -1,0 +1,198 @@
+#design {
+    .add-design {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        width: fit-content;
+    }
+}
+
+#add-design {
+    .designing-area {
+        padding-right: 10px;
+
+        .designing-view {
+            min-height: calc(55vh + 149px);
+            border: 1px solid var(--theme-color);
+            border-radius: 5px;
+            position: relative;
+
+            .design-area {
+                padding: 0px 60px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                min-height: calc(55vh + 149px);
+
+                .react-rnd {
+                    position: relative;
+
+                    .del-icon {
+                        position: absolute;
+                        right: 0;
+                    }
+
+                    &:hover {
+                        outline: solid;
+                        outline-color: var(--theme-color);
+                    }
+                }
+            }
+
+            .design-toolbar {
+                position: absolute;
+                margin: 10px;
+                border-radius: 5px;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+
+    .design-aside-menu {
+        h1 {
+            font-size: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        hr {
+            margin: 5px;
+        }
+
+        .configure-btn {
+            display: block;
+            width: fit-content;
+            margin: 10px auto;
+        }
+
+        ._3d-view {
+            margin: 20px 0px;
+            border: 1px solid var(--theme-color);
+            min-height: 55vh;
+            border-radius: 5px;
+
+        }
+
+        ._3d-view-actions {
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                flex-shrink: 0;
+            }
+        }
+
+        .design-notes {
+            margin: 5px 0px;
+
+            textarea {
+                width: 100%;
+                height: 70px;
+                margin: 5px 0px;
+                resize: none;
+                padding: 5px;
+                border: 1px solid var(--theme-color);
+                border-radius: 5px;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+}
+
+.services-modal {
+    padding-top: 40px;
+
+    .all-modals {
+        max-height: 60vh;
+        overflow-y: scroll;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .modal-details {
+            margin: 5px;
+            flex-grow: 1;
+
+            .modal-img {
+                min-width: 120px;
+                height: 200px;
+                border: 1px solid var(--theme-color);
+            }
+
+            .color-img {
+                min-width: 100px;
+                height: 100px;
+                border: 1px solid var(--theme-color);
+            }
+        }
+    }
+
+    .colorBtn {
+        margin-top: 10px;
+        text-align: center;
+        font-size: .8rem;
+        width: 150px;
+        border: 2px solid black;
+        border-radius: .2rem;
+        cursor: pointer;
+    }
+}
+
+#custom-modal {
+    min-height: 85vh;
+    padding-top: 30px;
+
+    .model-upload-container {
+        padding-top: 30px;
+
+        .model-upload-view {
+            min-height: 250px;
+            border: 1px solid var(--theme-color);
+            border-radius: 5px;
+        }
+
+        .model-upload-action-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            button,
+            input {
+                margin-top: 10px;
+                width: fit-content;
+            }
+        }
+    }
+
+    .upload-model-detail-div {
+        flex-grow: 1;
+        padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        input {
+            margin-top: 5px;
+        }
+    }
+}
+
+.design-context-model {
+    position: relative;
+    padding-bottom: 60px;
+
+    .design-context-footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+    }
+}

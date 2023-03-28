@@ -21,12 +21,15 @@ import InformationModal from '../../components/InformationModal/InformationModal
 import ProfileModal from '../../components/ProfileModal/ProfileModal';
 import LogOutModal from '../../components/LogOutModal/LogOutModal';
 import Trash from './pages/Trash/Trash';
+import AddDesign from './pages/design/AddDesign';
+import Offers from './pages/Offers/Offers';
 
 // Helpers :
 import SiteConstants from '../../constants/SiteConstants';
 
 // CSS :
 import "./admin.scss";
+import Orders from './pages/Orders/Orders';
 
 
 
@@ -39,17 +42,18 @@ const Admin = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
-  const [currentRoute, setCurrentRoute] = useState();
+  const [currentRoute, setCurrentRoute] = useState("Dashboard");
 
   const [openHelpModal, setOpenHelpModal] = useState(false)
   const [openInformationModal, setOpenInformationModal] = useState(false)
   const [openProfileModal, setOpenProfileModal] = useState(false)
   const [openLogoutModal, setOpenLogoutModal] = useState(false)
 
+
   useEffect(() => {
-    let path = location.pathname?.replace(/(\/)/g, "")?.replace("admin", "")?.replace("-", " ");
-    setCurrentRoute(path || "dashbaord");
-  }, [location.pathname,]);
+    let path = location.pathname?.replace(/(\/)/g, " ")?.replace("admin", "")?.replace("-", " ");
+    setCurrentRoute(path?.trim());
+  }, [location.pathname]);
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -174,7 +178,7 @@ const Admin = () => {
           <Content>
             <div className='admin-content'>
               <div className='admin-header'>
-                <h1 className='theme-text route-name'> {currentRoute} </h1>
+                <h1 className='theme-text route-name'> {currentRoute ? currentRoute : <> Dashboard </>} </h1>
                 <button className='btn theme-text'>
                   <BsBell size={25} />
                 </button>
@@ -184,7 +188,11 @@ const Admin = () => {
                   <Route index path='/' element={<Dashboard />} />
                   <Route index path='/reporting' element={<Reports />} />
                   <Route index path='/designs' element={<Design />} />
+                  <Route index path='/offers' element={<Offers />} />
+                  <Route index path='/orders' element={<Orders />} />
                   <Route index path='/trash' element={<Trash />} />
+                  <Route index path='/designs/add' element={<AddDesign />} />
+                  <Route index path='/designs/:id' element={<AddDesign />} />
                 </Routes>
               </div>
             </div>

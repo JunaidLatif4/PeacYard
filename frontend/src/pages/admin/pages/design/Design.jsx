@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import Table from '../../../../components/table/Table'
+import { BsArrowRight } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
+import Table from '../../../../components/table/Table';
+import "./design.scss";
 
 const Design = () => {
 
@@ -114,7 +117,9 @@ const Design = () => {
     }
   ]
   return (
-    <div>
+    <section id="design">
+      <Link className='theme-btn btn-pad add-design' to="/admin/designs/add"> Add &nbsp; +  </Link>
+      <br />
       <Table
         rows={designs}
         columns={columns}
@@ -126,7 +131,7 @@ const Design = () => {
         tableLeftActions={["Open", "Closed", "Expired", "Archive", "Templates", "All"]}
         tableLeftActiveAction="Open"
       />
-    </div>
+    </section>
   )
 }
 

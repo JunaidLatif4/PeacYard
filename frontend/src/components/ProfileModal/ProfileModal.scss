@@ -105,6 +105,10 @@
     }
 
     .flexEnd {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+
         .btn {
             background-color: var(--theme-color);
             color: white;

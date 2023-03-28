@@ -1,0 +1,87 @@
+.ant-modal:has(.offerRequestModalContainer) {
+    width: 800px !important;
+    margin: 2rem;
+}
+
+.offerRequestModalContainer {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .title {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .subTitle {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-left: 1rem;
+    }
+
+    .offerDetaiils {
+        display: flex;
+        gap: 1.5rem;
+        margin-left: .5rem;
+
+        .offerForm{
+            display: flex;
+            gap: .5rem;
+
+            .form{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+    }
+
+
+
+    .flexCenter {
+        gap: .5rem;
+        margin: 1rem 0;
+
+        button {
+            padding: .5rem 1rem;
+            font-size: .65rem;
+        }
+    }
+
+    .modeldetail {
+        .line {
+            height: 2px;
+            width: 100%;
+            background-color: black;
+        }
+
+        li {
+            list-style-type: disc;
+            margin-left: .5rem;
+        }
+
+        .flexCenter {
+            gap: .5rem;
+            margin: 1rem 0;
+
+            button {
+                padding: .5rem 1rem;
+                font-size: .65rem;
+            }
+        }
+
+        .imgsection {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+
+            .productimg {
+                border: 1px solid red;
+                height: 200px;
+                width: 200px;
+            }
+        }
+    }
+}
